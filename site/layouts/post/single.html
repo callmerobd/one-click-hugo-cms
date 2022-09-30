@@ -10,6 +10,19 @@
       <p>{{ .Description }}</p>
       {{ if .Params.image }}<img src="{{ .Params.image }}" alt="{{ .Title }}" />{{ end }}
       {{ .Content }}
+      <div class="mw7 center ph3 pt4">
+
+  {{ range $index, $element := .Params.values }}
+    {{ if modBool $index 2 }}
+      {{ partial "media-block" $element }}
+    {{ else }}
+      {{ partial "media-block-reverse" $element }}
+    {{ end }}
+  {{ end }}
+
+</div>
+      
+      
     </div>
   </div>
 {{ end }}
