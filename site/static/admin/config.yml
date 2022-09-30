@@ -16,6 +16,26 @@ collections: # A list of collections the CMS should be able to edit
       - {label: "Intro Blurb", name: "description", widget: "text"}
       - {label: "Image", name: "image", widget: "image", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
+   - name: "collection" # Used in routes, ie.: /admin/collections/:slug/edit
+     label: "Collection" # Used in the UI, ie.: "New Collection"
+     folder: "site/content/collections" # The path to the folder where the documents are stored
+     create: true # Allow users to create new documents in this collection
+     fields: # The fields each document in this collection have
+       - {label: "Title", name: "title", widget: "string"}
+       - {label: "Publish Date", name: "date", widget: "datetime"}
+       - {label: "Intro Blurb", name: "description", widget: "text"}
+       - {label: "Image", name: "image", widget: "image", required: false}
+       - label: Products
+        name: products
+        widget: list
+        fields:
+          - {label: Prouct Name, name: name, widget: string}
+          - {label: Description, name: description, widget: text}
+          - {label: Image, name: imageUrl, widget: image}
+          - {label: Vendor, name: vendor, widget: text}
+          - {label: URL, name: url, widget: text}
+          - {label: Fav, name: fav, widget: text}
+        - {label: "Below", name: "below", widget: "markdown"}
   - name: "pages"
     label: "Pages"
     files:
